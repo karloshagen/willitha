@@ -1,0 +1,36 @@
+{
+  "name": "willitha",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "migrate": "tsx scripts/migrate.ts",
+    "seed": "tsx scripts/seed.ts",
+    "check": "tsx scripts/check.ts",
+    "email": "email dev --dir emails --port 3000"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "next": "^16.4.6",
+    "postgres": "^3.4.7",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "resend": "^6.37.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/node": "^22.19.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^16.4.6",
+    "react-email": "^6.11.10",
+    "tailwindcss": "^4.3.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  }
+}

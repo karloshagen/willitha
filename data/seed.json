@@ -1,0 +1,1086 @@
+[
+  {
+    "slug": "sigenergy-sigenstor",
+    "brand": "Sigenergy",
+    "model": "SigenStor (EC hybrid inverter + battery stack)",
+    "type": "hybrid inverter + battery",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "Sigenergy ESS (Local Modbus)",
+        "url": "https://github.com/TypQxQ/Sigenergy-Local-Modbus"
+      },
+      {
+        "route": "cloud API only",
+        "name": "Sigenergy Cloud (HACS)",
+        "url": "https://github.com/solidfox/homeassistant-sigenergy-cloud"
+      }
+    ],
+    "local": "local (Modbus TCP) or cloud",
+    "control": "control (work mode, charge/discharge, export limit via local or cloud integrations)",
+    "energy_dashboard": "y",
+    "gotchas": "Modbus TCP usually has to be enabled by the installer; give the ESS a static IP.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://github.com/TypQxQ/Sigenergy-Local-Modbus",
+      "https://github.com/solidfox/homeassistant-sigenergy-cloud"
+    ]
+  },
+  {
+    "slug": "sigenergy-sigen-hybrid",
+    "brand": "Sigenergy",
+    "model": "Sigen Hybrid inverter (SigenStor-compatible battery)",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "Sigenergy ESS (Local Modbus)",
+        "url": "https://github.com/TypQxQ/Sigenergy-Local-Modbus"
+      }
+    ],
+    "local": "local",
+    "control": "control",
+    "energy_dashboard": "y",
+    "gotchas": "Same Modbus register set as SigenStor; one Modbus client at a time is safest.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://github.com/TypQxQ/Sigenergy-Local-Modbus"
+    ]
+  },
+  {
+    "slug": "goodwe-et",
+    "brand": "GoodWe",
+    "model": "ET / EH series hybrid",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "GoodWe Inverter",
+        "url": "https://www.home-assistant.io/integrations/goodwe"
+      }
+    ],
+    "local": "local",
+    "control": "read-only (core integration exposes sensors only)",
+    "energy_dashboard": "y",
+    "gotchas": "ET/EH have the best Energy Dashboard sensors. Enable Modbus TCP on the dongle; old ARM firmware may need a manufacturer upgrade. Frequent polling can stall SEMS cloud updates.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/goodwe"
+    ]
+  },
+  {
+    "slug": "goodwe-es-em",
+    "brand": "GoodWe",
+    "model": "ES / EM series hybrid",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "GoodWe Inverter",
+        "url": "https://www.home-assistant.io/integrations/goodwe"
+      }
+    ],
+    "local": "local",
+    "control": "read-only (core integration exposes sensors only)",
+    "energy_dashboard": "partial",
+    "gotchas": "Older ES/EM expose fewer cumulative energy sensors; Riemann sum may be needed for the Energy Dashboard.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/goodwe"
+    ]
+  },
+  {
+    "slug": "goodwe-bt-bh",
+    "brand": "GoodWe",
+    "model": "BT / BH series (AC-coupled / retrofit)",
+    "type": "AC-coupled battery inverter",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "GoodWe Inverter",
+        "url": "https://www.home-assistant.io/integrations/goodwe"
+      }
+    ],
+    "local": "local",
+    "control": "read-only (core integration exposes sensors only)",
+    "energy_dashboard": "partial",
+    "gotchas": "Supported by the official integration, but sensor coverage is narrower than ET/EH.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/goodwe"
+    ]
+  },
+  {
+    "slug": "goodwe-dt-ms",
+    "brand": "GoodWe",
+    "model": "DT / MS / D-NS / XS / BP string inverters",
+    "type": "string inverter",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "GoodWe Inverter",
+        "url": "https://www.home-assistant.io/integrations/goodwe"
+      }
+    ],
+    "local": "local",
+    "control": "read-only",
+    "energy_dashboard": "partial",
+    "gotchas": "PV-only families; grid import/export and battery energy sensors are often missing, so Energy Dashboard use may need helpers.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/goodwe"
+    ]
+  },
+  {
+    "slug": "goodwe-lynx",
+    "brand": "GoodWe",
+    "model": "Lynx Home F/U battery (with ET/EH inverter)",
+    "type": "battery",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "GoodWe Inverter",
+        "url": "https://www.home-assistant.io/integrations/goodwe"
+      }
+    ],
+    "local": "local",
+    "control": "via inverter (core integration is still read-only)",
+    "energy_dashboard": "y",
+    "gotchas": "Battery is seen through the inverter, not as a native BYD-style integration.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/goodwe"
+    ]
+  },
+  {
+    "slug": "foxess-h1",
+    "brand": "FoxESS",
+    "model": "H1 / AC1 series",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "FoxESS Modbus",
+        "url": "https://github.com/nathanmarlor/foxess_modbus"
+      }
+    ],
+    "local": "local (Modbus RS485 or LAN)",
+    "control": "control (work mode, force charge/discharge)",
+    "energy_dashboard": "y",
+    "gotchas": "Many models need an RS485-to-Ethernet adapter; LAN Modbus depends on firmware.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://github.com/nathanmarlor/foxess_modbus"
+    ]
+  },
+  {
+    "slug": "foxess-h3-kh",
+    "brand": "FoxESS",
+    "model": "H3 / KH series",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "FoxESS Modbus",
+        "url": "https://github.com/nathanmarlor/foxess_modbus"
+      }
+    ],
+    "local": "local",
+    "control": "control",
+    "energy_dashboard": "y",
+    "gotchas": "Check the repo's supported-models list for your firmware version before buying.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://github.com/nathanmarlor/foxess_modbus"
+    ]
+  },
+  {
+    "slug": "foxess-ep-ecs",
+    "brand": "FoxESS",
+    "model": "EP / ECS / Mira battery modules",
+    "type": "battery",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "FoxESS Modbus",
+        "url": "https://github.com/nathanmarlor/foxess_modbus"
+      }
+    ],
+    "local": "local",
+    "control": "via inverter",
+    "energy_dashboard": "y",
+    "gotchas": "Battery data only via the FoxESS inverter.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://github.com/nathanmarlor/foxess_modbus"
+    ]
+  },
+  {
+    "slug": "fronius-gen24",
+    "brand": "Fronius",
+    "model": "Primo / Symo GEN24 Plus",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "Fronius",
+        "url": "https://www.home-assistant.io/integrations/fronius"
+      }
+    ],
+    "local": "local",
+    "control": "partial (Modbus TCP: charge/discharge/reserve % setpoints; Solar API is read-only)",
+    "energy_dashboard": "y",
+    "gotchas": "Solar API is read-only. Control needs Modbus TCP enabled and is percentage-based only; no absolute watt or max SoC setpoint.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/fronius"
+    ]
+  },
+  {
+    "slug": "fronius-primo-symo",
+    "brand": "Fronius",
+    "model": "Primo / Symo (non-hybrid)",
+    "type": "string inverter",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "Fronius",
+        "url": "https://www.home-assistant.io/integrations/fronius"
+      }
+    ],
+    "local": "local",
+    "control": "read-only (output power limit only, via Modbus)",
+    "energy_dashboard": "y",
+    "gotchas": "A Fronius Smart Meter (or S0 meter) is needed for grid import/export.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/fronius"
+    ]
+  },
+  {
+    "slug": "fronius-symo-hybrid",
+    "brand": "Fronius",
+    "model": "Symo Hybrid (legacy)",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "Fronius",
+        "url": "https://www.home-assistant.io/integrations/fronius"
+      }
+    ],
+    "local": "local",
+    "control": "partial (Modbus TCP storage setpoints)",
+    "energy_dashboard": "y",
+    "gotchas": "Older hybrid platform; still listed as supported by the official Fronius integration (includes Storage).",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/fronius"
+    ]
+  },
+  {
+    "slug": "tesla-powerwall-2",
+    "brand": "Tesla",
+    "model": "Powerwall 2 / Powerwall+",
+    "type": "AC-coupled battery",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "Tesla Powerwall",
+        "url": "https://www.home-assistant.io/integrations/powerwall"
+      },
+      {
+        "route": "official core integration",
+        "name": "Tesla Fleet",
+        "url": "https://www.home-assistant.io/integrations/tesla_fleet"
+      },
+      {
+        "route": "official core integration",
+        "name": "Teslemetry",
+        "url": "https://www.home-assistant.io/integrations/teslemetry"
+      }
+    ],
+    "local": "local (read) + cloud (control)",
+    "control": "control (backup reserve and operation mode via Fleet or Teslemetry; core Powerwall integration is mainly sensors)",
+    "energy_dashboard": "y",
+    "gotchas": "The local gateway API is read-mostly; writable reserve/mode usually go through Tesla Fleet or Teslemetry.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/powerwall",
+      "https://www.home-assistant.io/integrations/tesla_fleet",
+      "https://www.home-assistant.io/integrations/teslemetry"
+    ]
+  },
+  {
+    "slug": "tesla-powerwall-3",
+    "brand": "Tesla",
+    "model": "Powerwall 3",
+    "type": "hybrid inverter + battery",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "Tesla Powerwall",
+        "url": "https://www.home-assistant.io/integrations/powerwall"
+      },
+      {
+        "route": "official core integration",
+        "name": "Tesla Fleet",
+        "url": "https://www.home-assistant.io/integrations/tesla_fleet"
+      },
+      {
+        "route": "official core integration",
+        "name": "Teslemetry",
+        "url": "https://www.home-assistant.io/integrations/teslemetry"
+      }
+    ],
+    "local": "limited local; cloud",
+    "control": "control (backup reserve and operation mode via Fleet or Teslemetry; Teslemetry added a local energy-site path in HA 2026.10)",
+    "energy_dashboard": "partial",
+    "gotchas": "Powerwall 3 exposes a more restricted local HTTP API than Powerwall 2; Powerwall 1 is unsupported.",
+    "sources": [
+      "https://www.home-assistant.io/integrations/powerwall",
+      "https://www.home-assistant.io/integrations/tesla_fleet",
+      "https://www.home-assistant.io/integrations/teslemetry",
+      "https://teslemetry.com/blog/local-control-in-home-assistant"
+    ],
+    "last_verified": "2026-11-10"
+  },
+  {
+    "slug": "sungrow-sh-rs",
+    "brand": "Sungrow",
+    "model": "SH-RS series hybrid (e.g. SH5.0/6.0RS)",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "Sungrow iSolarCloud (cloud + optional local WiNet-S Modbus)",
+        "url": "https://sungrow-hass.kroper.uk/"
+      },
+      {
+        "route": "Modbus TCP or RS485",
+        "name": "Sungrow SHx Modbus YAML pack (mkaiser)",
+        "url": "https://github.com/mkaiser/Sungrow-SHx-Inverter-Modbus-Home-Assistant"
+      }
+    ],
+    "local": "local (Modbus) or cloud",
+    "control": "control (force charge/discharge, export limit via the HACS/Modbus integrations)",
+    "energy_dashboard": "y",
+    "gotchas": "WiNet-S dongle Modbus can be flaky; a LAN cable to the inverter port is more reliable. Cloud dispatch needs an iSolarCloud developer app or the unofficial login path.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://sungrow-hass.kroper.uk/",
+      "https://github.com/mkaiser/Sungrow-SHx-Inverter-Modbus-Home-Assistant"
+    ]
+  },
+  {
+    "slug": "sungrow-sh-rt",
+    "brand": "Sungrow",
+    "model": "SH-RT three-phase hybrid (e.g. SH10RT)",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "Sungrow iSolarCloud (cloud + optional local WiNet-S Modbus)",
+        "url": "https://sungrow-hass.kroper.uk/"
+      },
+      {
+        "route": "Modbus TCP or RS485",
+        "name": "Sungrow SHx Modbus YAML pack (mkaiser)",
+        "url": "https://github.com/mkaiser/Sungrow-SHx-Inverter-Modbus-Home-Assistant"
+      }
+    ],
+    "local": "local or cloud",
+    "control": "control",
+    "energy_dashboard": "y",
+    "gotchas": "Same integration path as SH-RS; confirm your model is on the HACS model-support matrix.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://sungrow-hass.kroper.uk/",
+      "https://github.com/mkaiser/Sungrow-SHx-Inverter-Modbus-Home-Assistant"
+    ]
+  },
+  {
+    "slug": "sungrow-sbr",
+    "brand": "Sungrow",
+    "model": "SBR battery (with SH inverter)",
+    "type": "battery",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "Sungrow iSolarCloud (cloud + optional local WiNet-S Modbus)",
+        "url": "https://sungrow-hass.kroper.uk/"
+      },
+      {
+        "route": "Modbus TCP or RS485",
+        "name": "Sungrow SHx Modbus YAML pack (mkaiser)",
+        "url": "https://github.com/mkaiser/Sungrow-SHx-Inverter-Modbus-Home-Assistant"
+      }
+    ],
+    "local": "local or cloud",
+    "control": "via inverter",
+    "energy_dashboard": "y",
+    "gotchas": "Battery only visible via the SH inverter, not as a standalone integration.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://sungrow-hass.kroper.uk/",
+      "https://github.com/mkaiser/Sungrow-SHx-Inverter-Modbus-Home-Assistant"
+    ]
+  },
+  {
+    "slug": "sungrow-sbh",
+    "brand": "Sungrow",
+    "model": "SBH battery (with SH inverter)",
+    "type": "battery",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "Sungrow iSolarCloud (cloud + optional local WiNet-S Modbus)",
+        "url": "https://sungrow-hass.kroper.uk/"
+      },
+      {
+        "route": "Modbus TCP or RS485",
+        "name": "Sungrow SHx Modbus YAML pack (mkaiser)",
+        "url": "https://github.com/mkaiser/Sungrow-SHx-Inverter-Modbus-Home-Assistant"
+      }
+    ],
+    "local": "local or cloud",
+    "control": "via inverter",
+    "energy_dashboard": "y",
+    "gotchas": "Treat as inverter-attached storage; confirm your SH firmware reports SBH registers.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://sungrow-hass.kroper.uk/",
+      "https://github.com/mkaiser/Sungrow-SHx-Inverter-Modbus-Home-Assistant"
+    ]
+  },
+  {
+    "slug": "alphaess-smile",
+    "brand": "AlphaESS",
+    "model": "SMILE5 / SMILE-Hi / SMILE-B3",
+    "type": "hybrid inverter + battery",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "AlphaESS (cloud Open API)",
+        "url": "https://github.com/CharlesGillanders/homeassistant-alphaESS"
+      }
+    ],
+    "local": "cloud",
+    "control": "partial (charge/discharge windows via the cloud API)",
+    "energy_dashboard": "y",
+    "gotchas": "Cloud API is rate-limited. Local Modbus is possible on some units but is unverified per model here.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://github.com/CharlesGillanders/homeassistant-alphaESS"
+    ]
+  },
+  {
+    "slug": "huawei-sun2000",
+    "brand": "Huawei",
+    "model": "SUN2000 L1 / M1 hybrid",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "Huawei Solar",
+        "url": "https://github.com/wlcrs/huawei_solar"
+      }
+    ],
+    "local": "local (Modbus TCP via dongle/inverter or RS485)",
+    "control": "control (inverter/battery settings when 'elevate permissions' is enabled)",
+    "energy_dashboard": "y",
+    "gotchas": "Only one Modbus client at a time. Port is usually 502 or 6607; the dongle may need a firmware update to expose Modbus.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://github.com/wlcrs/huawei_solar"
+    ]
+  },
+  {
+    "slug": "huawei-luna2000",
+    "brand": "Huawei",
+    "model": "LUNA2000 battery",
+    "type": "battery",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "Huawei Solar",
+        "url": "https://github.com/wlcrs/huawei_solar"
+      }
+    ],
+    "local": "local",
+    "control": "control via inverter",
+    "energy_dashboard": "y",
+    "gotchas": "Battery TOU / forced charge needs the elevated-permissions option in the Huawei Solar integration.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://github.com/wlcrs/huawei_solar"
+    ]
+  },
+  {
+    "slug": "istore-hybrid",
+    "brand": "iStore",
+    "model": "iStore hybrid (rebadged Huawei SUN2000, e.g. IS-GYB-5000-1PH = SUN2000-5KTL-L1)",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "Huawei Solar",
+        "url": "https://github.com/wlcrs/huawei_solar"
+      },
+      {
+        "route": "HACS custom integration",
+        "name": "iStore Solar (cloud, read-only)",
+        "url": "https://github.com/opilot87/ha-istore-solar"
+      }
+    ],
+    "local": "local (Huawei Modbus) or cloud (iStore portal)",
+    "control": "control locally via Huawei Solar; cloud integration is read-only",
+    "energy_dashboard": "y",
+    "gotchas": "Local O+M / Modbus TCP often has to be enabled in the installer/HiSolar interface (port 6607 is common). iStore sites may sit on Univers EMS instead of FusionSolar.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://github.com/wlcrs/huawei_solar",
+      "https://github.com/opilot87/ha-istore-solar"
+    ]
+  },
+  {
+    "slug": "istore-battery",
+    "brand": "iStore",
+    "model": "iStore battery (Huawei LUNA2000 rebadge, with iStore/SUN2000 hybrid)",
+    "type": "battery",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "Huawei Solar",
+        "url": "https://github.com/wlcrs/huawei_solar"
+      },
+      {
+        "route": "HACS custom integration",
+        "name": "iStore Solar (cloud, read-only)",
+        "url": "https://github.com/opilot87/ha-istore-solar"
+      }
+    ],
+    "local": "local or cloud",
+    "control": "via inverter (local Huawei Solar); cloud path is read-only",
+    "energy_dashboard": "y",
+    "gotchas": "Same Modbus one-client limit as Huawei. Cloud integration does not offer control.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://github.com/wlcrs/huawei_solar",
+      "https://github.com/opilot87/ha-istore-solar"
+    ]
+  },
+  {
+    "slug": "solaredge-home-hub",
+    "brand": "SolarEdge",
+    "model": "Home Hub / StorEdge (SE\u2026H) inverter",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "SolarEdge (cloud)",
+        "url": "https://www.home-assistant.io/integrations/solaredge"
+      },
+      {
+        "route": "official core integration",
+        "name": "SolarEdge Modbus",
+        "url": "https://www.home-assistant.io/integrations/solaredge_modbus"
+      },
+      {
+        "route": "HACS custom integration",
+        "name": "SolarEdge Modbus Multi",
+        "url": "https://github.com/WillCodeForCats/solaredge-modbus-multi"
+      }
+    ],
+    "local": "local (Modbus TCP) or cloud",
+    "control": "partial (storage control via Modbus Multi; official cloud integration is read-only)",
+    "energy_dashboard": "y",
+    "gotchas": "Modbus TCP is off by default and may need the installer. The cloud API is rate-limited (about 15 minutes).",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/solaredge",
+      "https://www.home-assistant.io/integrations/solaredge_modbus",
+      "https://github.com/WillCodeForCats/solaredge-modbus-multi"
+    ]
+  },
+  {
+    "slug": "solaredge-home-battery",
+    "brand": "SolarEdge",
+    "model": "Home Battery 48V / 400V",
+    "type": "battery",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "SolarEdge (cloud)",
+        "url": "https://www.home-assistant.io/integrations/solaredge"
+      },
+      {
+        "route": "official core integration",
+        "name": "SolarEdge Modbus",
+        "url": "https://www.home-assistant.io/integrations/solaredge_modbus"
+      },
+      {
+        "route": "HACS custom integration",
+        "name": "SolarEdge Modbus Multi",
+        "url": "https://github.com/WillCodeForCats/solaredge-modbus-multi"
+      }
+    ],
+    "local": "local or cloud",
+    "control": "via inverter",
+    "energy_dashboard": "y",
+    "gotchas": "Battery control registers typically need advanced power control enabled on the inverter.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/solaredge",
+      "https://www.home-assistant.io/integrations/solaredge_modbus",
+      "https://github.com/WillCodeForCats/solaredge-modbus-multi"
+    ]
+  },
+  {
+    "slug": "enphase-iq-gateway",
+    "brand": "Enphase",
+    "model": "IQ Gateway (Envoy) + IQ microinverters",
+    "type": "microinverter system",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "Enphase Envoy",
+        "url": "https://www.home-assistant.io/integrations/enphase_envoy"
+      }
+    ],
+    "local": "local (token for firmware 7+ is fetched from the Enphase cloud)",
+    "control": "partial (IQ Battery storage mode, reserve, charge-from-grid, and Enpower relays \u2014 but see gotcha)",
+    "energy_dashboard": "y",
+    "gotchas": "Firmware 7+ needs an Enphase token (MFA forces manual token entry). From Envoy firmware 8.2.4225 the local API no longer supports setting battery mode, reserve, or charge-from-grid.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/enphase_envoy"
+    ]
+  },
+  {
+    "slug": "enphase-iq-battery",
+    "brand": "Enphase",
+    "model": "IQ Battery 5P / 10T",
+    "type": "AC-coupled battery",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "Enphase Envoy",
+        "url": "https://www.home-assistant.io/integrations/enphase_envoy"
+      }
+    ],
+    "local": "local",
+    "control": "partial (storage mode and reserve when the local API still allows it)",
+    "energy_dashboard": "partial",
+    "gotchas": "Battery energy for the Energy Dashboard is straightforward only with a storage CT; otherwise helpers are needed. Newer Envoy firmware dropped local battery controls.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/enphase_envoy"
+    ]
+  },
+  {
+    "slug": "sunsynk-hybrid",
+    "brand": "Sunsynk",
+    "model": "Hybrid 5 kW / 8 kW single-phase",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "Solarman (local logger)",
+        "url": "https://github.com/davidrapan/ha-solarman"
+      },
+      {
+        "route": "Modbus TCP or RS485",
+        "name": "Sunsynk/Deye add-on (kellerza)",
+        "url": "https://github.com/kellerza/sunsynk"
+      }
+    ],
+    "local": "local",
+    "control": "control (work mode, timers, charge)",
+    "energy_dashboard": "y",
+    "gotchas": "The Solarman Wi-Fi stick is often slow or unreliable; direct RS485 is preferred.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://github.com/davidrapan/ha-solarman",
+      "https://github.com/kellerza/sunsynk"
+    ]
+  },
+  {
+    "slug": "deye-sun-sg",
+    "brand": "Deye",
+    "model": "SUN-SG hybrid series",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "Solarman (local logger)",
+        "url": "https://github.com/davidrapan/ha-solarman"
+      },
+      {
+        "route": "Modbus TCP or RS485",
+        "name": "Sunsynk/Deye add-on (kellerza)",
+        "url": "https://github.com/kellerza/sunsynk"
+      }
+    ],
+    "local": "local",
+    "control": "control",
+    "energy_dashboard": "y",
+    "gotchas": "Same protocol family as Sunsynk; check the register profile matches your exact model.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://github.com/davidrapan/ha-solarman",
+      "https://github.com/kellerza/sunsynk"
+    ]
+  },
+  {
+    "slug": "solis-rhi",
+    "brand": "Solis",
+    "model": "RHI / S6 hybrid",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "SolaX Modbus (also covers many Solis hybrids)",
+        "url": "https://github.com/wills106/homeassistant-solax-modbus"
+      },
+      {
+        "route": "cloud API only",
+        "name": "SolisCloud (HACS)",
+        "url": "https://github.com/hultenvp/solis-sensor"
+      }
+    ],
+    "local": "local (Modbus) or cloud",
+    "control": "control (via Modbus); cloud integration is mainly sensors",
+    "energy_dashboard": "y",
+    "gotchas": "Needs an RS485 adapter or a compatible data logger for local control.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://github.com/wills106/homeassistant-solax-modbus",
+      "https://github.com/hultenvp/solis-sensor"
+    ]
+  },
+  {
+    "slug": "solax-x1-hybrid",
+    "brand": "SolaX",
+    "model": "X1 / X3 Hybrid G4",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "SolaX Power (read-only)",
+        "url": "https://www.home-assistant.io/integrations/solax"
+      },
+      {
+        "route": "HACS custom integration",
+        "name": "SolaX Modbus (also covers many Solis hybrids)",
+        "url": "https://github.com/wills106/homeassistant-solax-modbus"
+      }
+    ],
+    "local": "local",
+    "control": "control (via the SolaX Modbus HACS integration; core is read-only)",
+    "energy_dashboard": "y",
+    "gotchas": "The official SolaX integration is read-only; use the Modbus integration for work-mode and charge control.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/solax",
+      "https://github.com/wills106/homeassistant-solax-modbus"
+    ]
+  },
+  {
+    "slug": "sma-sunny-boy",
+    "brand": "SMA",
+    "model": "Sunny Boy (Webconnect)",
+    "type": "string inverter",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "SMA Solar",
+        "url": "https://www.home-assistant.io/integrations/sma"
+      }
+    ],
+    "local": "local",
+    "control": "read-only",
+    "energy_dashboard": "y",
+    "gotchas": "Only Webconnect devices are supported. You must be able to open the inverter's web UI first.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/sma"
+    ]
+  },
+  {
+    "slug": "sma-sunny-boy-storage",
+    "brand": "SMA",
+    "model": "Sunny Boy Storage / Sunny Island (Webconnect battery inverter)",
+    "type": "battery inverter",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "SMA Solar",
+        "url": "https://www.home-assistant.io/integrations/sma"
+      }
+    ],
+    "local": "local",
+    "control": "read-only",
+    "energy_dashboard": "y",
+    "gotchas": "Core integration exposes battery charge/discharge energy sensors but no writeable charge controls. Battery control via custom Modbus is unverified.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/sma"
+    ]
+  },
+  {
+    "slug": "sma-tripower-x",
+    "brand": "SMA",
+    "model": "Sunny Tripower X / Sunny Boy Smart Energy (ennexOS)",
+    "type": "hybrid inverter / string inverter",
+    "integrations": [],
+    "local": "unverified",
+    "control": "none known",
+    "energy_dashboard": "n",
+    "gotchas": "Official SMA integration explicitly does not support ennexOS devices such as Tripower X, or SMA Energy Meter / Sunny Home Manager.",
+    "sources": [
+      "https://www.home-assistant.io/integrations/sma"
+    ],
+    "last_verified": "2026-11-10"
+  },
+  {
+    "slug": "growatt-sph",
+    "brand": "Growatt",
+    "model": "SPH / MOD-XH hybrid",
+    "type": "hybrid inverter",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "Growatt (cloud)",
+        "url": "https://www.home-assistant.io/integrations/growatt_server"
+      },
+      {
+        "route": "HACS custom integration",
+        "name": "Growatt local (Modbus)",
+        "url": "https://github.com/WouterTuinstra/Homeassistant-Growatt-Local-Modbus"
+      }
+    ],
+    "local": "cloud (core) or local (HACS Modbus)",
+    "control": "partial (core token API has limited controls; local Modbus control depends on model \u2014 unverified per SKU)",
+    "energy_dashboard": "y",
+    "gotchas": "The official path is the Growatt cloud and can be slow or rate-limited. Local Modbus needs an RS485 adapter.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/growatt_server",
+      "https://github.com/WouterTuinstra/Homeassistant-Growatt-Local-Modbus"
+    ]
+  },
+  {
+    "slug": "redback-smart-hybrid",
+    "brand": "Redback",
+    "model": "SH5000 / Smart Hybrid",
+    "type": "hybrid inverter + battery",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "Redback (cloud API)",
+        "url": "https://github.com/juicejuice/homeassistant_redback"
+      }
+    ],
+    "local": "cloud",
+    "control": "unverified",
+    "energy_dashboard": "partial",
+    "gotchas": "Needs API credentials from Redback support. No widely used local integration found.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://github.com/juicejuice/homeassistant_redback"
+    ]
+  },
+  {
+    "slug": "selectronic-sp-pro",
+    "brand": "Selectronic",
+    "model": "SP PRO (with select.live)",
+    "type": "battery inverter",
+    "integrations": [
+      {
+        "route": "none known",
+        "name": "REST sensors via select.live local JSON (config examples)",
+        "url": "https://github.com/eliotharper/ha-selectronic"
+      },
+      {
+        "route": "HACS custom integration",
+        "name": "SelectronicMQTT",
+        "url": "https://github.com/JackScottAU/SelectronicMQTT"
+      }
+    ],
+    "local": "local",
+    "control": "read-only",
+    "energy_dashboard": "partial",
+    "gotchas": "No official integration. Needs a select.live device and REST or MQTT config; Energy Dashboard usually needs templated sensors.",
+    "sources": [
+      "https://github.com/eliotharper/ha-selectronic",
+      "https://github.com/JackScottAU/SelectronicMQTT"
+    ],
+    "last_verified": "2026-11-10"
+  },
+  {
+    "slug": "victron-multiplus-gx",
+    "brand": "Victron",
+    "model": "MultiPlus-II / Quattro with Cerbo GX (or other Venus OS GX)",
+    "type": "battery inverter",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "Victron GX (MQTT)",
+        "url": "https://www.home-assistant.io/integrations/victron_gx"
+      }
+    ],
+    "local": "local",
+    "control": "control (ESS mode, grid setpoint, charge limits, inverter mode, disable charge/feed-in)",
+    "energy_dashboard": "y",
+    "gotchas": "MQTT must be enabled on the GX device. High-churn entities can grow the recorder database quickly.",
+    "last_verified": "2026-11-10",
+    "sources": [
+      "https://www.home-assistant.io/integrations/victron_gx"
+    ]
+  },
+  {
+    "slug": "byd-hvs-hvm-fronius",
+    "brand": "BYD",
+    "model": "Battery-Box Premium HVS/HVM (with Fronius GEN24 Plus or Symo Hybrid)",
+    "type": "battery",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "Fronius",
+        "url": "https://www.home-assistant.io/integrations/fronius"
+      },
+      {
+        "route": "HACS custom integration",
+        "name": "BYD Battery-Box BCU diagnostics (Modbus, read-only)",
+        "url": "https://github.com/redpomodoro/byd_battery_box"
+      }
+    ],
+    "local": "local",
+    "control": "via inverter (Fronius Modbus setpoints); BCU integration is diagnostics only",
+    "energy_dashboard": "y",
+    "gotchas": "BYD has no charge/discharge interface of its own. Confirm inverter firmware against the BYD compatibility list.",
+    "sources": [
+      "https://www.home-assistant.io/integrations/fronius",
+      "https://github.com/redpomodoro/byd_battery_box",
+      "https://pure-electric.com.au/sites/default/files/2025-03/BYD%20Battery%20Box%20Premium%20HVS%26HVM%20Compatible%20Inverter%20List%20V2.19%20250123.pdf"
+    ],
+    "last_verified": "2026-11-10"
+  },
+  {
+    "slug": "byd-hvs-hvm-goodwe",
+    "brand": "BYD",
+    "model": "Battery-Box Premium HVS/HVM (with GoodWe ET / BT)",
+    "type": "battery",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "GoodWe Inverter",
+        "url": "https://www.home-assistant.io/integrations/goodwe"
+      },
+      {
+        "route": "HACS custom integration",
+        "name": "BYD Battery-Box BCU diagnostics (Modbus, read-only)",
+        "url": "https://github.com/redpomodoro/byd_battery_box"
+      }
+    ],
+    "local": "local",
+    "control": "via inverter (official GoodWe integration is read-only)",
+    "energy_dashboard": "y",
+    "gotchas": "Listed as compatible with GoodWe ET 5\u201310 kW and BT, subject to ARM firmware. HA control of the battery is not available through the core GoodWe integration.",
+    "sources": [
+      "https://www.home-assistant.io/integrations/goodwe",
+      "https://github.com/redpomodoro/byd_battery_box",
+      "https://pure-electric.com.au/sites/default/files/2025-03/BYD%20Battery%20Box%20Premium%20HVS%26HVM%20Compatible%20Inverter%20List%20V2.19%20250123.pdf"
+    ],
+    "last_verified": "2026-11-10"
+  },
+  {
+    "slug": "byd-hvs-hvm-sungrow",
+    "brand": "BYD",
+    "model": "Battery-Box Premium HVS/HVM (with Sungrow SH-RS / SH-RT)",
+    "type": "battery",
+    "integrations": [
+      {
+        "route": "HACS custom integration",
+        "name": "Sungrow iSolarCloud (cloud + optional local WiNet-S Modbus)",
+        "url": "https://sungrow-hass.kroper.uk/"
+      },
+      {
+        "route": "Modbus TCP or RS485",
+        "name": "Sungrow SHx Modbus YAML pack (mkaiser)",
+        "url": "https://github.com/mkaiser/Sungrow-SHx-Inverter-Modbus-Home-Assistant"
+      },
+      {
+        "route": "HACS custom integration",
+        "name": "BYD Battery-Box BCU diagnostics (Modbus, read-only)",
+        "url": "https://github.com/redpomodoro/byd_battery_box"
+      }
+    ],
+    "local": "local or cloud",
+    "control": "via inverter",
+    "energy_dashboard": "y",
+    "gotchas": "Sungrow lists HVS/HVM for SH3.0\u20136.0RS and SHxxRT, with minimum BMU/BMS firmware. Battery entities come from the inverter integration.",
+    "sources": [
+      "https://sungrow-hass.kroper.uk/",
+      "https://github.com/mkaiser/Sungrow-SHx-Inverter-Modbus-Home-Assistant",
+      "https://pure-electric.com.au/sites/default/files/2025-03/BYD%20Battery%20Box%20Premium%20HVS%26HVM%20Compatible%20Inverter%20List%20V2.19%20250123.pdf"
+    ],
+    "last_verified": "2026-11-10"
+  },
+  {
+    "slug": "byd-lvs-victron",
+    "brand": "BYD",
+    "model": "Battery-Box Premium LVS / LVL / LV Flex (with Victron MultiPlus/Quattro + GX)",
+    "type": "battery",
+    "integrations": [
+      {
+        "route": "official core integration",
+        "name": "Victron GX (MQTT)",
+        "url": "https://www.home-assistant.io/integrations/victron_gx"
+      },
+      {
+        "route": "HACS custom integration",
+        "name": "BYD Battery-Box BCU diagnostics (Modbus, read-only)",
+        "url": "https://github.com/redpomodoro/byd_battery_box"
+      }
+    ],
+    "local": "local",
+    "control": "via Victron GX (ESS / charge limits)",
+    "energy_dashboard": "y",
+    "gotchas": "Victron requires a GX device on the BMS-CAN bus. High-voltage HVS/HVM is not the Victron-supported family; use the LV models listed in Victron's compatibility note.",
+    "sources": [
+      "https://www.home-assistant.io/integrations/victron_gx",
+      "https://www.victronenergy.com/live/battery_compatibility:byd_b-box"
+    ],
+    "last_verified": "2026-11-10"
+  },
+  {
+    "slug": "byd-lvs-selectronic",
+    "brand": "BYD",
+    "model": "Battery-Box LVS / LVL / LV Flex (with Selectronic SP PRO)",
+    "type": "battery",
+    "integrations": [
+      {
+        "route": "none known",
+        "name": "REST sensors via select.live local JSON (config examples)",
+        "url": "https://github.com/eliotharper/ha-selectronic"
+      },
+      {
+        "route": "HACS custom integration",
+        "name": "SelectronicMQTT",
+        "url": "https://github.com/JackScottAU/SelectronicMQTT"
+      }
+    ],
+    "local": "local",
+    "control": "via inverter (SP PRO); HA path is read-only",
+    "energy_dashboard": "partial",
+    "gotchas": "Selectronic lists BYD LVL 15.4, LVS 4.0 and LV Flex 5.0 as approved. HA still depends on select.live REST/MQTT, not a native BYD integration.",
+    "sources": [
+      "https://github.com/eliotharper/ha-selectronic",
+      "https://github.com/JackScottAU/SelectronicMQTT",
+      "https://www.selectronic.com.au/kits/approvedbatteries.html"
+    ],
+    "last_verified": "2026-11-10"
+  }
+]
