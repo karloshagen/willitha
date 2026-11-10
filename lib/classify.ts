@@ -167,6 +167,20 @@ export function energyLabel(energy: EnergyDashboard): string {
   }
 }
 
+/** Plain status for the entry page, distinct from the row label. */
+export function energyDetail(energy: string): string {
+  switch (energy) {
+    case "y":
+      return "Yes";
+    case "partial":
+      return "Partial";
+    case "n":
+      return "No";
+    default:
+      return "Not confirmed";
+  }
+}
+
 export function energyTone(energy: EnergyDashboard): BadgeTone {
   switch (energy) {
     case "y":

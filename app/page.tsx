@@ -58,21 +58,29 @@ export default async function HomePage({
         ) : (
           <p className="mt-2 text-sm text-muted">The directory cannot reach its database just now.</p>
         )}
+        <div id="signup" className="mt-5 max-w-2xl rounded-2xl border border-line bg-card px-4 py-3">
+          <p className="text-sm leading-snug">
+            <span className="font-semibold">The weekly note.</span>{" "}
+            <span className="text-muted">Five Australian picks, plus the week’s sponsor. Easy to leave.</span>
+          </p>
+          <SignupForm />
+        </div>
         <div className="mt-5 max-w-2xl">
           <HomeSearch />
         </div>
         {types && types.length > 0 ? (
-          <div className="mt-3 flex max-w-full gap-2 overflow-x-auto pb-1">
+          <ul className="mt-3 flex max-w-full flex-wrap gap-2">
             {types.map((type) => (
-              <Link
-                key={type}
-                href={`/search?type=${encodeURIComponent(type)}`}
-                className="shrink-0 rounded-full border border-line bg-card px-3 py-1.5 text-sm hover:border-eucalyptus"
-              >
-                {type}
-              </Link>
+              <li key={type}>
+                <Link
+                  href={`/search?type=${encodeURIComponent(type)}`}
+                  className="inline-flex rounded-full border border-line bg-card px-3 py-1.5 text-sm hover:border-eucalyptus"
+                >
+                  {type}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         ) : null}
       </section>
 
@@ -116,13 +124,6 @@ export default async function HomePage({
         </section>
       ) : null}
 
-      <section id="signup" className="rounded-3xl border border-line bg-card px-4 py-5 sm:px-6">
-        <h2 className="font-display text-2xl">The weekly note</h2>
-        <p className="mt-1 max-w-xl text-sm leading-relaxed text-muted">
-          Five Australian Home Assistant solar picks, plus the week’s sponsor. Easy to leave.
-        </p>
-        <SignupForm />
-      </section>
     </div>
   );
 }

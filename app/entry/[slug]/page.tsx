@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Badge, BadgeRow } from "@/components/badges";
-import { controlLabel, energyLabel, localLabel, routeLabel, routeTone } from "@/lib/classify";
+import { controlLabel, energyDetail, localLabel, routeLabel, routeTone } from "@/lib/classify";
 import { getEntry } from "@/lib/entries";
 import { brandPath, entryPath, formatAuDate } from "@/lib/site";
 import type { Entry } from "@/lib/types";
@@ -83,7 +83,7 @@ export default async function EntryPage({ params }: { params: Promise<{ slug: st
           </div>
           <div>
             <dt className="font-semibold">Energy Dashboard</dt>
-            <dd className="text-muted">{energyLabel(entry.energy_dashboard)}</dd>
+            <dd className="text-muted">{energyDetail(entry.energy_dashboard)}</dd>
           </div>
         </dl>
       </section>
