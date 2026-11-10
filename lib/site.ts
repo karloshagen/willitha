@@ -22,6 +22,10 @@ export function entryPath(slug: string): string {
   return `/entry/${slug}`;
 }
 
+export function testedPath(slug: string): string {
+  return `/tested/${slug}`;
+}
+
 export function brandPath(brand: string): string {
   return `/brand/${brandSlug(brand)}`;
 }

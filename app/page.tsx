@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { EntryCard } from "@/components/entry-card";
 import { HomeSearch, SignupForm } from "@/components/forms";
+import { ReviewCard } from "@/components/review-card";
 import { entryScore } from "@/lib/classify";
 import { listBrands, listEntries, listTypes } from "@/lib/entries";
+import { listPublishedReviews } from "@/lib/reviews";
 import { brandPath } from "@/lib/site";
 import { oneParam } from "@/lib/text";
 
@@ -26,7 +28,12 @@ export default async function HomePage({
   const params = await searchParams;
   const signedUp = oneParam(params.signedup) === "1";
   const signupError = oneParam(params.signup);
-  const [entries, brands, types] = await Promise.all([listEntries(), listBrands(), listTypes()]);
+  const [entries, brands, types, reviews] = await Promise.all([
+    listEntries(),
+    listBrands(),
+    listTypes(),
+    listPublishedReviews(),
+  ]);
   const featured = entries
     ? [...entries].sort((a, b) => entryScore(b) - entryScore(a) || a.brand.localeCompare(b.brand) || a.model.localeCompare(b.model)).slice(0, 8)
     : null;
@@ -104,6 +111,36 @@ export default async function HomePage({
           </div>
         ) : (
           <Notice>{entries ? "The catalogue is empty right now." : "Entries will show once the database is connected."}</Notice>
+        )}
+      </section>
+
+      <section aria-labelledby="tested" className="min-w-0">
+        <div className="mb-3 flex items-end justify-between gap-3">
+          <div>
+            <h2 id="tested" className="font-display text-2xl">
+              Tested at home
+            </h2>
+            <p className="text-sm text-muted">Hands-on notes from gear running at home, not from a brochure.</p>
+          </div>
+          <Link href="/tested" className="shrink-0 text-sm font-semibold text-eucalyptus">
+            See all
+          </Link>
+        </div>
+        {reviews === null ? (
+          <Notice>Reviews are unavailable just now.</Notice>
+        ) : reviews.length === 0 ? (
+          <div className="rounded-3xl border border-dashed border-line bg-card px-5 py-6">
+            <h3 className="font-display text-xl">First reviews coming soon</h3>
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
+              Energy equipment first, then anything else on Home Assistant: CT clamps, smart plugs, hot water controllers, and sensors.
+            </p>
+          </div>
+        ) : (
+          <div className="grid gap-3 sm:grid-cols-2">
+            {reviews.slice(0, 2).map((review) => (
+              <ReviewCard key={review.slug} review={review} />
+            ))}
+          </div>
         )}
       </section>
 

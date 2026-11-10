@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Badge, BadgeRow } from "@/components/badges";
+import { TestedBadge } from "@/components/review-card";
 import { controlLabel, energyDetail, localLabel, routeLabel, routeTone } from "@/lib/classify";
 import { getEntry } from "@/lib/entries";
-import { brandPath, entryPath, formatAuDate } from "@/lib/site";
+import { getPublishedReviewForEntry } from "@/lib/reviews";
+import { brandPath, entryPath, formatAuDate, testedPath } from "@/lib/site";
 import type { Entry } from "@/lib/types";
 
 function describe(entry: Entry): string {
@@ -49,6 +51,7 @@ export default async function EntryPage({ params }: { params: Promise<{ slug: st
     return <p className="rounded-2xl border border-line bg-card px-4 py-3">The directory cannot reach its database just now.</p>;
   }
   if (!entry) notFound();
+  const homeTest = await getPublishedReviewForEntry(entry.slug);
 
   const correction = `/submit?kind=correction&slug=${encodeURIComponent(entry.slug)}&brand=${encodeURIComponent(entry.brand)}&model=${encodeURIComponent(entry.model)}`;
 
@@ -68,6 +71,14 @@ export default async function EntryPage({ params }: { params: Promise<{ slug: st
         <h1 className="mt-1 font-display text-4xl leading-tight">{entry.model}</h1>
         <p className="mt-2 text-sm text-muted">Last verified {formatAuDate(entry.last_verified)}</p>
         <BadgeRow entry={entry} className="mt-4" />
+        {homeTest ? (
+          <p className="mt-4">
+            <Link href={testedPath(homeTest.slug)} className="inline-flex flex-wrap items-center gap-2">
+              <TestedBadge />
+              <span className="text-sm font-semibold text-eucalyptus">Read the home test</span>
+            </Link>
+          </p>
+        ) : null}
       </header>
 
       <section className="grid gap-3 rounded-2xl border border-line bg-card p-4">

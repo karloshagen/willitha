@@ -114,3 +114,30 @@ CREATE TABLE IF NOT EXISTS rate_limits (
   hits INTEGER NOT NULL,
   window_start TIMESTAMPTZ NOT NULL
 );
+
+-- Hands-on reviews. entry_slug is optional and cleared if that directory row is removed.
+CREATE TABLE IF NOT EXISTS reviews (
+  id BIGSERIAL PRIMARY KEY,
+  slug TEXT NOT NULL UNIQUE,
+  title TEXT NOT NULL,
+  device_name TEXT NOT NULL,
+  brand TEXT NOT NULL,
+  category TEXT NOT NULL,
+  entry_slug TEXT REFERENCES entries (slug) ON DELETE SET NULL,
+  integration_type TEXT NOT NULL CHECK (integration_type IN ('official', 'HACS', 'Modbus', 'MQTT', 'other')),
+  local_or_cloud TEXT NOT NULL,
+  rating INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 5),
+  summary TEXT NOT NULL,
+  body TEXT NOT NULL,
+  pros JSONB NOT NULL DEFAULT '[]'::jsonb,
+  cons JSONB NOT NULL DEFAULT '[]'::jsonb,
+  photos JSONB NOT NULL DEFAULT '[]'::jsonb,
+  affiliate_url TEXT,
+  published BOOLEAN NOT NULL DEFAULT false,
+  published_at TIMESTAMPTZ,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS reviews_published_idx ON reviews (published, published_at DESC);
+CREATE INDEX IF NOT EXISTS reviews_category_idx ON reviews (category);
+CREATE INDEX IF NOT EXISTS reviews_entry_slug_idx ON reviews (entry_slug);
