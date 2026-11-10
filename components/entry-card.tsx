@@ -7,7 +7,7 @@ export function EntryCard({ entry }: { entry: Entry }) {
   return (
     <article className="rounded-2xl border border-line bg-card p-3.5 shadow-[0_1px_0_rgba(23,36,28,0.04)]">
       <div className="flex items-baseline justify-between gap-3">
-        <p className="text-xs font-semibold tracking-wide text-muted uppercase">{entry.brand}</p>
+        <p className="text-xs font-semibold text-muted">{entry.brand}</p>
         <p className="text-right text-xs text-muted">{entry.type}</p>
       </div>
       <h2 className="mt-1 font-display text-xl leading-snug text-ink">

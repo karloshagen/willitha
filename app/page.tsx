@@ -43,7 +43,7 @@ export default async function HomePage({
       {signupError === "error" ? <Notice>The list could not be saved just now. Try again shortly.</Notice> : null}
 
       <section className="min-w-0">
-        <p className="text-sm font-semibold text-eucalyptus">For Australian roofs</p>
+        <p className="text-sm font-semibold text-eucalyptus">for Australian roofs</p>
         <h1 className="mt-1 max-w-2xl font-display text-4xl leading-tight text-ink sm:text-5xl">
           Will it work with Home Assistant?
         </h1>

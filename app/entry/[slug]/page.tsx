@@ -64,7 +64,7 @@ export default async function EntryPage({ params }: { params: Promise<{ slug: st
         </Link>
       </p>
       <header>
-        <p className="text-sm font-semibold tracking-wide text-muted uppercase">{entry.type}</p>
+        <p className="text-sm font-semibold text-muted">{entry.type}</p>
         <h1 className="mt-1 font-display text-4xl leading-tight">{entry.model}</h1>
         <p className="mt-2 text-sm text-muted">Last verified {formatAuDate(entry.last_verified)}</p>
         <BadgeRow entry={entry} className="mt-4" />
