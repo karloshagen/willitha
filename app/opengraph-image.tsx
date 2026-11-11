@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { logoLockupSrc } from "@/lib/logo-lockup";
 
 export const alt = "Will It HA — Australian solar and battery Home Assistant compatibility";
 export const size = { width: 1200, height: 630 };
@@ -19,9 +20,7 @@ export default function OpenGraphImage() {
           padding: "72px",
         }}
       >
-        <div style={{ display: "flex", fontSize: 28, color: "#1b6b43", fontWeight: 700 }}>
-          Will It HA · Australia
-        </div>
+        <img src={logoLockupSrc()} width={560} height={117} alt="" />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", fontSize: 68, fontWeight: 700, lineHeight: 1.05, maxWidth: 980 }}>
             Will it work with Home Assistant?

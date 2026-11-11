@@ -1,13 +1,28 @@
 export function Logo() {
   return (
     <span className="inline-flex items-center gap-1.5 whitespace-nowrap sm:gap-2">
-      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
-        <rect width="32" height="32" rx="8" fill="#1b6b43" />
-        <circle cx="16" cy="12.5" r="4.5" fill="#f4d7a1" />
-        <path d="M8 21.5h16v3.2a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-3.2z" fill="#f6f1e6" />
-        <path d="M24 22.4h2.2v2.2H24z" fill="#f6f1e6" />
+      <svg className="h-8 w-8" viewBox="2 2 124 122" aria-hidden="true">
+        <path
+          d="M 22 114 H 106 V 56 L 64 18 L 22 56 Z"
+          fill="none"
+          stroke="#03A9F4"
+          strokeWidth="9.5"
+          strokeLinejoin="round"
+          strokeLinecap="round"
+        />
+        <path
+          d="M 50 67 C 50 53, 79.5 51.5, 79.5 66.5 C 79.5 76, 66 78.5, 64 86.5 L 64 91"
+          fill="none"
+          stroke="#03A9F4"
+          strokeWidth="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <circle cx="64" cy="101.6" r="5.6" fill="#03A9F4" />
       </svg>
-      <span className="font-display text-lg leading-none tracking-tight sm:text-xl">Will It HA</span>
+      <span className="font-display text-lg leading-none tracking-tight text-ink sm:text-xl">
+        Will It <span className="text-[#03A9F4]">HA</span>
+      </span>
       <span className="rounded-full bg-ochre-soft px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-ochre">
         AU
       </span>
