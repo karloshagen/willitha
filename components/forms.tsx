@@ -17,7 +17,7 @@ function Honeypot() {
 
 export function SignupForm() {
   return (
-    <form action={signUp} className="relative flex flex-col gap-2 sm:flex-row sm:items-center">
+    <form action={signUp} className="relative flex flex-col gap-2 sm:flex-row sm:flex-nowrap sm:items-center">
       <Honeypot />
       <input type="hidden" name="next" value="/" />
       <p className="text-sm text-muted">
@@ -35,7 +35,7 @@ export function SignupForm() {
         placeholder="you@example.net"
         className="h-10 w-full rounded-full border border-line bg-white px-3 text-sm sm:max-w-[200px]"
       />
-      <button type="submit" className="text-left text-sm font-medium text-blue">
+      <button type="submit" className="shrink-0 text-left text-sm font-medium whitespace-nowrap text-blue">
         Join the list
       </button>
     </form>
