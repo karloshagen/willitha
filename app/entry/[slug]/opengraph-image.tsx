@@ -24,17 +24,17 @@ export default async function EntryImage({ params }: { params: Promise<{ slug: s
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#f3efe4",
-          color: "#17241c",
+          background: "#ffffff",
+          color: "#14181c",
           padding: "72px",
         }}
       >
         <img src={logoLockupSrc()} width={480} height={100} alt="" />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", fontSize: 60, fontWeight: 700, lineHeight: 1.08, maxWidth: 1000 }}>{title}</div>
-          <div style={{ display: "flex", marginTop: 28, fontSize: 30, color: "#5c6a62" }}>{detail}</div>
+          <div style={{ display: "flex", marginTop: 28, fontSize: 30, color: "#5d6670" }}>{detail}</div>
         </div>
-        <div style={{ display: "flex", fontSize: 24, color: "#1e4f68" }}>willitha.au</div>
+        <div style={{ display: "flex", fontSize: 24, color: "#03A9F4" }}>willitha.au</div>
       </div>
     ),
     size,

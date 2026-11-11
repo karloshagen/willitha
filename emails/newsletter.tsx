@@ -70,7 +70,7 @@ export default function Newsletter({
               colors: {
                 paper: "#f3efe4",
                 ink: "#17241c",
-                eucalyptus: "#1b6b43",
+                eucalyptus: "#03A9F4",
                 muted: "#5c6a62",
               },
             },
@@ -78,7 +78,7 @@ export default function Newsletter({
         }}
       >
         <Head />
-        <Body className="bg-paper font-sans text-ink">
+        <Body className="bg-white font-sans text-ink">
           <Preview>{preview}</Preview>
           <Container className="mx-auto max-w-xl px-5 py-8">
             <Text className="m-0 text-sm font-semibold text-eucalyptus">Will It HA · Australia</Text>

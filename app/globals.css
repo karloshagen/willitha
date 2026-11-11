@@ -2,32 +2,35 @@
 
 @theme inline {
   --font-sans: var(--font-source), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
-  --color-paper: #f3efe4;
-  --color-ink: #17241c;
-  --color-muted: #5c6a62;
-  --color-line: #ddd4c4;
-  --color-card: #fffdf8;
-  --color-eucalyptus: #1b6b43;
-  --color-eucalyptus-soft: #e7f4ec;
-  --color-ochre: #9a531f;
-  --color-ochre-soft: #f8ecdf;
-  --color-sea: #1e4f68;
-  --color-sea-soft: #e5f1f6;
-  --color-rose: #8c3834;
-  --color-rose-soft: #f8e8e4;
-  --color-sand: #efe8da;
+  --font-display: var(--font-tight), var(--font-source), ui-sans-serif, system-ui, sans-serif;
+  --color-paper: #ffffff;
+  --color-ink: #14181c;
+  --color-muted: #5d6670;
+  --color-faint: #8a929b;
+  --color-line: #eceff2;
+  --color-card: #ffffff;
+  --color-soft: #f6f8fa;
+  --color-blue: #03a9f4;
+  --color-blue-soft: #e8f6fd;
+  --color-eucalyptus: #03a9f4;
+  --color-eucalyptus-soft: #e8f6fd;
+  --color-ochre: #03a9f4;
+  --color-ochre-soft: #e8f6fd;
+  --color-sea: #5d6670;
+  --color-sea-soft: #f6f8fa;
+  --color-rose: #5d6670;
+  --color-rose-soft: #f6f8fa;
+  --color-sand: #f6f8fa;
 }
 
 body {
-  background-image:
-    radial-gradient(1000px 420px at 0% -10%, rgba(27, 107, 67, 0.08), transparent 55%),
-    radial-gradient(800px 360px at 100% 0%, rgba(154, 83, 31, 0.07), transparent 50%);
-  background-attachment: fixed;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :focus-visible {
-  outline: 2px solid #1b6b43;
+  outline: 2px solid #03a9f4;
   outline-offset: 2px;
 }
 
@@ -37,7 +40,9 @@ body {
 
 .review-body h2,
 .review-body h3 {
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-display), Inter, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
   line-height: 1.2;
 }
 
@@ -70,19 +75,19 @@ body {
 }
 
 .review-body a {
-  color: #1b6b43;
+  color: #03a9f4;
   text-underline-offset: 0.15em;
 }
 
 .review-body blockquote {
-  border-left: 3px solid #ddd4c4;
+  border-left: 3px solid #eceff2;
   padding-left: 0.9rem;
-  color: #5c6a62;
+  color: #5d6670;
 }
 
 .review-body code {
   border-radius: 0.3rem;
-  background: #efe8da;
+  background: #f6f8fa;
   padding: 0.1rem 0.3rem;
   font-size: 0.92em;
 }
@@ -90,8 +95,8 @@ body {
 .review-body pre {
   overflow-x: auto;
   border-radius: 0.8rem;
-  background: #17241c;
-  color: #f3efe4;
+  background: #14181c;
+  color: #ffffff;
   padding: 0.9rem 1rem;
 }
 

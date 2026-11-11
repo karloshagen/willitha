@@ -1,7 +1,7 @@
 export function Logo() {
   return (
-    <span className="inline-flex items-center gap-1.5 whitespace-nowrap sm:gap-2">
-      <svg className="h-8 w-8" viewBox="2 2 124 122" aria-hidden="true">
+    <span className="inline-flex items-center gap-2.5 whitespace-nowrap">
+      <svg className="h-[30px] w-[30px] sm:h-[34px] sm:w-[34px]" viewBox="2 2 124 122" aria-hidden="true">
         <path
           d="M 22 114 H 106 V 56 L 64 18 L 22 56 Z"
           fill="none"
@@ -20,11 +20,13 @@ export function Logo() {
         />
         <circle cx="64" cy="101.6" r="5.6" fill="#03A9F4" />
       </svg>
-      <span className="font-display text-lg leading-none tracking-tight text-ink sm:text-xl">
-        Will It <span className="text-[#03A9F4]">HA</span>
-      </span>
-      <span className="rounded-full bg-ochre-soft px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-ochre">
-        AU
+      <span className="inline-flex items-center gap-2 font-display text-[1.15rem] leading-none font-semibold tracking-[-0.035em] text-ink sm:text-[1.25rem]">
+        <span>
+          Will It <span className="text-[#03A9F4]">HA</span>
+        </span>
+        <span className="relative -top-px rounded-full border border-[#cfeefe] px-1.5 pt-0.5 pb-px font-sans text-[9px] leading-[1.3] font-semibold tracking-[0.1em] text-[#03A9F4]">
+          AU
+        </span>
       </span>
     </span>
   );

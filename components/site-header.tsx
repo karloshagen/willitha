@@ -10,18 +10,14 @@ const links = [
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-line/80 bg-paper/90 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-x-3 gap-y-1 px-3 py-3 sm:px-4">
+    <header className="bg-white">
+      <div className="mx-auto flex w-full max-w-[1080px] flex-wrap items-center justify-between gap-x-6 gap-y-3 px-5 py-4 sm:px-10 sm:pt-5 sm:pb-[18px]">
         <Link href="/" className="shrink-0">
           <Logo />
         </Link>
-        <nav aria-label="Primary" className="flex flex-wrap items-center justify-end text-sm font-semibold">
+        <nav aria-label="Primary" className="flex w-full flex-wrap items-center gap-4 text-[13px] font-medium text-muted sm:w-auto sm:gap-[26px] sm:text-sm">
           {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="rounded-full px-2 py-2 text-ink hover:bg-sand sm:px-3"
-            >
+            <Link key={link.href} href={link.href} className="hover:text-ink">
               {link.label}
             </Link>
           ))}

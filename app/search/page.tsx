@@ -38,7 +38,7 @@ export default async function SearchPage({
   }
 
   return (
-    <div className="grid gap-6">
+    <div className="grid gap-6 py-8 sm:py-12">
       <div>
         <h1 className="font-display text-4xl">Directory</h1>
         <p className="mt-2 max-w-2xl text-muted">

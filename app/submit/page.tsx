@@ -24,7 +24,7 @@ export default async function SubmitPage({
   };
 
   return (
-    <div className="mx-auto grid max-w-2xl gap-5">
+    <div className="mx-auto grid max-w-2xl gap-5 py-8 sm:py-12">
       <header>
         <h1 className="font-display text-4xl">Submit</h1>
         <p className="mt-2 text-muted">

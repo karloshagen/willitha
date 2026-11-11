@@ -23,7 +23,7 @@ export default async function TestedPage({
   ]);
 
   return (
-    <div className="grid min-w-0 gap-6">
+    <div className="grid min-w-0 gap-6 py-8 sm:py-12">
       <header className="max-w-2xl">
         <p className="text-sm font-semibold text-eucalyptus">Tested at home</p>
         <h1 className="mt-1 font-display text-4xl leading-tight">Gear running at home</h1>

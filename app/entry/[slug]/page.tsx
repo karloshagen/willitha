@@ -56,7 +56,7 @@ export default async function EntryPage({ params }: { params: Promise<{ slug: st
   const correction = `/submit?kind=correction&slug=${encodeURIComponent(entry.slug)}&brand=${encodeURIComponent(entry.brand)}&model=${encodeURIComponent(entry.model)}`;
 
   return (
-    <article className="mx-auto grid max-w-3xl gap-6">
+    <article className="mx-auto grid max-w-3xl gap-6 py-8 sm:py-12">
       <p className="text-sm text-muted">
         <Link href="/search" className="font-semibold text-eucalyptus">
           Directory

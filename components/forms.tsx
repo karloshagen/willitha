@@ -17,9 +17,12 @@ function Honeypot() {
 
 export function SignupForm() {
   return (
-    <form action={signUp} className="relative mt-3 flex flex-col gap-2 sm:flex-row">
+    <form action={signUp} className="relative flex flex-col gap-2 sm:flex-row sm:items-center">
       <Honeypot />
       <input type="hidden" name="next" value="/" />
+      <p className="text-sm text-muted">
+        The weekly note. Five Australian picks, plus the week’s sponsor.
+      </p>
       <label className="sr-only" htmlFor="signup-email">
         Email address
       </label>
@@ -30,12 +33,9 @@ export function SignupForm() {
         required
         autoComplete="email"
         placeholder="you@example.net"
-        className="min-h-11 w-full rounded-full border border-line bg-card px-4 text-base"
+        className="h-10 w-full rounded-full border border-line bg-white px-3 text-sm sm:max-w-[200px]"
       />
-      <button
-        type="submit"
-        className="min-h-11 shrink-0 rounded-full bg-eucalyptus px-5 text-sm font-semibold text-white"
-      >
+      <button type="submit" className="text-left text-sm font-medium text-blue">
         Join the list
       </button>
     </form>
@@ -126,25 +126,23 @@ export function SearchForm({
 
 export function HomeSearch({ query = "" }: { query?: string }) {
   return (
-    <form action="/search" method="get" className="relative" role="search">
-      <label htmlFor="home-q" className="text-sm font-semibold">
+    <form action="/search" method="get" className="flex flex-col gap-2.5 sm:flex-row sm:items-center" role="search">
+      <label htmlFor="home-q" className="sr-only">
         Search the directory
       </label>
-      <div className="mt-1 flex flex-col gap-2 sm:flex-row">
-        <input
-          id="home-q"
-          name="q"
-          defaultValue={query}
-          placeholder="Sigenergy, Powerwall, Modbus…"
-          className="min-h-12 w-full rounded-full border border-line bg-card px-4 text-base shadow-[0_1px_0_rgba(23,36,28,0.04)]"
-        />
-        <button
-          type="submit"
-          className="min-h-12 rounded-full bg-ink px-5 text-sm font-semibold text-paper"
-        >
-          Search
-        </button>
-      </div>
+      <input
+        id="home-q"
+        name="q"
+        defaultValue={query}
+        placeholder="Sigenergy, Powerwall, Modbus…"
+        className="h-12 w-full rounded-full border border-line bg-white px-[18px] text-[15px] text-ink outline-none placeholder:text-faint"
+      />
+      <button
+        type="submit"
+        className="h-12 rounded-full bg-ink px-[22px] text-sm font-semibold tracking-[-0.01em] text-white"
+      >
+        Search
+      </button>
     </form>
   );
 }
@@ -229,7 +227,7 @@ export function SubmitForm({
         Email <span className="font-normal text-muted">(optional, never shown on the site)</span>
         <input name="email" type="email" autoComplete="email" className={fieldClass} />
       </label>
-      <button type="submit" className="min-h-11 rounded-full bg-eucalyptus px-5 text-sm font-semibold text-white">
+      <button type="submit" className="min-h-11 rounded-full bg-ink px-5 text-sm font-semibold text-white">
         Send for review
       </button>
     </form>
@@ -258,7 +256,7 @@ export function SponsorInquiryForm() {
         Message
         <textarea name="message" required rows={5} className={fieldClass} placeholder="What you would like to sponsor, and the week you have in mind" />
       </label>
-      <button type="submit" className="min-h-11 rounded-full bg-eucalyptus px-5 text-sm font-semibold text-white">
+      <button type="submit" className="min-h-11 rounded-full bg-ink px-5 text-sm font-semibold text-white">
         Get in touch
       </button>
     </form>

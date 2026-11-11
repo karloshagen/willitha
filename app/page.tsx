@@ -4,15 +4,15 @@ import { EntryCard } from "@/components/entry-card";
 import { HomeSearch, SignupForm } from "@/components/forms";
 import { ReviewCard } from "@/components/review-card";
 import { entryScore } from "@/lib/classify";
-import { listBrands, listEntries, listTypes } from "@/lib/entries";
+import { listBrands, listEntries } from "@/lib/entries";
 import { listPublishedReviews } from "@/lib/reviews";
 import { brandPath } from "@/lib/site";
 import { oneParam } from "@/lib/text";
 
 export const metadata: Metadata = {
-  title: { absolute: "Will It HA — Australian solar and battery Home Assistant compatibility" },
+  title: { absolute: "Will It HA — Home Assistant Compatibility - For Australians" },
   description:
-    "Australian batteries and inverters, rated for Home Assistant: local or cloud, control, and Energy Dashboard support.",
+    "Home Assistant Compatibility - For Australians. Batteries and inverters rated for local control, cloud lock-in, and the Energy Dashboard.",
   alternates: { canonical: "/" },
 };
 
@@ -28,18 +28,13 @@ export default async function HomePage({
   const params = await searchParams;
   const signedUp = oneParam(params.signedup) === "1";
   const signupError = oneParam(params.signup);
-  const [entries, brands, types, reviews] = await Promise.all([
-    listEntries(),
-    listBrands(),
-    listTypes(),
-    listPublishedReviews(),
-  ]);
+  const [entries, brands, reviews] = await Promise.all([listEntries(), listBrands(), listPublishedReviews()]);
   const featured = entries
     ? [...entries].sort((a, b) => entryScore(b) - entryScore(a) || a.brand.localeCompare(b.brand) || a.model.localeCompare(b.model)).slice(0, 8)
     : null;
 
   return (
-    <div className="grid min-w-0 gap-8">
+    <div className="min-w-0">
       {signedUp ? <Notice>You are on the list. The weekly note is short and Australian.</Notice> : null}
       {signupError === "invalid" ? <Notice>Enter a valid email address.</Notice> : null}
       {signupError === "blocked" ? (
@@ -49,62 +44,46 @@ export default async function HomePage({
       {signupError === "rate" ? <Notice>Too many attempts from this network. Try again in an hour.</Notice> : null}
       {signupError === "error" ? <Notice>The list could not be saved just now. Try again shortly.</Notice> : null}
 
-      <section className="min-w-0">
-        <p className="text-sm font-semibold text-eucalyptus">for Australian roofs</p>
-        <h1 className="mt-1 max-w-2xl font-display text-4xl leading-tight text-ink sm:text-5xl">
-          Will it work with Home Assistant?
+      <section className="min-w-0 pt-11 pb-11 sm:pt-20 sm:pb-16">
+        <p className="mb-[18px] text-[13px] font-medium text-blue">Home Assistant Compatibility - For Australians</p>
+        <h1 className="max-w-[16em] font-display text-[36px] leading-[1.04] font-semibold tracking-[-0.038em] text-ink sm:text-[56px] sm:tracking-[-0.045em]">
+          Will it work with
+          <br />
+          Home Assistant?
         </h1>
-        <p className="mt-3 max-w-2xl text-lg leading-snug text-ink">
-          Australian batteries and inverters, rated for local control, cloud lock-in, and the Energy Dashboard.
+        <p className="mt-[18px] max-w-[620px] text-[17px] leading-normal text-ink sm:mt-[22px] sm:text-[19px]">
+          Australian batteries and inverters, rated for local control,{" "}
+          <span className="whitespace-nowrap">cloud lock-in</span>, and the{" "}
+          <span className="whitespace-nowrap">Energy Dashboard</span>.
         </p>
         {entries ? (
-          <p className="mt-2 text-sm text-muted">
+          <p className="mt-3 max-w-[36em] text-sm leading-normal text-muted">
             {entries.length} models · {brands?.length ?? 0} brands, including Sigenergy, GoodWe, iStore, Sungrow,
             Redback, and Selectronic.
           </p>
         ) : (
-          <p className="mt-2 text-sm text-muted">The directory cannot reach its database just now.</p>
+          <p className="mt-3 text-sm text-muted">The directory cannot reach its database just now.</p>
         )}
-        <div id="signup" className="mt-5 max-w-2xl rounded-2xl border border-line bg-card px-4 py-3">
-          <p className="text-sm leading-snug">
-            <span className="font-semibold">The weekly note.</span>{" "}
-            <span className="text-muted">Five Australian picks, plus the week’s sponsor. Easy to leave.</span>
-          </p>
-          <SignupForm />
-        </div>
-        <div className="mt-5 max-w-2xl">
+        <div className="mt-7 max-w-[540px] sm:mt-9">
           <HomeSearch />
         </div>
-        {types && types.length > 0 ? (
-          <ul className="mt-3 flex max-w-full flex-wrap gap-2">
-            {types.map((type) => (
-              <li key={type}>
-                <Link
-                  href={`/search?type=${encodeURIComponent(type)}`}
-                  className="inline-flex rounded-full border border-line bg-card px-3 py-1.5 text-sm hover:border-eucalyptus"
-                >
-                  {type}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        ) : null}
+        <div id="signup" className="mt-[18px] max-w-[540px]">
+          <SignupForm />
+        </div>
       </section>
 
-      <section aria-labelledby="shortlist" className="min-w-0">
-        <div className="mb-3 flex items-end justify-between gap-3">
-          <div>
-            <h2 id="shortlist" className="font-display text-2xl">
-              A strong shortlist
-            </h2>
-            <p className="text-sm text-muted">Local control and Energy Dashboard support rank higher. Open a model for sources.</p>
-          </div>
-          <Link href="/search" className="shrink-0 text-sm font-semibold text-eucalyptus">
+      <section aria-labelledby="shortlist" className="min-w-0 pt-3 pb-14 sm:pb-[72px]">
+        <div className="flex items-baseline justify-between gap-4">
+          <h2 id="shortlist" className="font-display text-2xl font-semibold tracking-[-0.03em]">
+            A strong shortlist
+          </h2>
+          <Link href="/search" className="shrink-0 text-sm font-medium text-blue">
             Browse all
           </Link>
         </div>
+        <p className="mt-1.5 text-sm text-muted">Local control and Energy Dashboard support rank higher. Open a model for sources.</p>
         {featured && featured.length > 0 ? (
-          <div className="grid gap-3 md:grid-cols-2">
+          <div className="mt-[22px] grid gap-3 sm:mt-7 md:grid-cols-2">
             {featured.map((entry) => (
               <EntryCard key={entry.slug} entry={entry} />
             ))}
@@ -114,23 +93,21 @@ export default async function HomePage({
         )}
       </section>
 
-      <section aria-labelledby="tested" className="min-w-0">
-        <div className="mb-3 flex items-end justify-between gap-3">
-          <div>
-            <h2 id="tested" className="font-display text-2xl">
-              Tested at home
-            </h2>
-            <p className="text-sm text-muted">Hands-on notes from gear running at home, not from a brochure.</p>
-          </div>
-          <Link href="/tested" className="shrink-0 text-sm font-semibold text-eucalyptus">
+      <section aria-labelledby="tested" className="min-w-0 pb-14">
+        <div className="flex items-baseline justify-between gap-4">
+          <h2 id="tested" className="font-display text-2xl font-semibold tracking-[-0.03em]">
+            Tested at home
+          </h2>
+          <Link href="/tested" className="shrink-0 text-sm font-medium text-blue">
             See all
           </Link>
         </div>
+        <p className="mt-1.5 text-sm text-muted">Hands-on notes from gear running at home, not from a brochure.</p>
         {reviews === null ? (
           <Notice>Reviews are unavailable just now.</Notice>
         ) : reviews.length === 0 ? (
-          <div className="rounded-3xl border border-dashed border-line bg-card px-5 py-6">
-            <h3 className="font-display text-xl">First reviews coming soon</h3>
+          <div className="mt-7 rounded-2xl bg-soft px-5 py-6">
+            <h3 className="font-display text-xl font-semibold tracking-[-0.03em]">First reviews coming soon</h3>
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
               Energy equipment first, then anything else on Home Assistant: CT clamps, smart plugs, hot water controllers, and sensors.
             </p>
@@ -146,13 +123,13 @@ export default async function HomePage({
 
       {brands && brands.length > 0 ? (
         <section aria-labelledby="brands">
-          <h2 id="brands" className="font-display text-2xl">
+          <h2 id="brands" className="font-display text-2xl font-semibold tracking-[-0.03em]">
             Brands on Australian roofs
           </h2>
-          <ul className="mt-3 flex flex-wrap gap-2">
+          <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
             {brands.map((brand) => (
               <li key={brand}>
-                <Link href={brandPath(brand)} className="inline-flex min-h-10 items-center rounded-full bg-sand px-3 text-sm font-semibold">
+                <Link href={brandPath(brand)} className="text-sm font-medium text-muted hover:text-blue">
                   {brand}
                 </Link>
               </li>

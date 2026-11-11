@@ -63,7 +63,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
   };
 
   return (
-    <article className="mx-auto grid max-w-3xl gap-6">
+    <article className="mx-auto grid max-w-3xl gap-6 py-8 sm:py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}

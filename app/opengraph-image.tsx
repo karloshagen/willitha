@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { logoLockupSrc } from "@/lib/logo-lockup";
 
-export const alt = "Will It HA — Australian solar and battery Home Assistant compatibility";
+export const alt = "Will It HA — Home Assistant Compatibility - For Australians";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -15,8 +15,8 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#f3efe4",
-          color: "#17241c",
+          background: "#ffffff",
+          color: "#14181c",
           padding: "72px",
         }}
       >
@@ -25,8 +25,8 @@ export default function OpenGraphImage() {
           <div style={{ display: "flex", fontSize: 68, fontWeight: 700, lineHeight: 1.05, maxWidth: 980 }}>
             Will it work with Home Assistant?
           </div>
-          <div style={{ display: "flex", marginTop: 24, fontSize: 32, color: "#5c6a62" }}>
-            Batteries and inverters sold in Australia.
+          <div style={{ display: "flex", marginTop: 24, fontSize: 32, color: "#5d6670" }}>
+            Home Assistant Compatibility - For Australians
           </div>
         </div>
         <div style={{ display: "flex", gap: 12, fontSize: 24 }}>

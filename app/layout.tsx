@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Source_Sans_3 } from "next/font/google";
+import { Inter, Inter_Tight } from "next/font/google";
 import { PageviewBeacon } from "@/components/pageview-beacon";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -8,15 +8,17 @@ import { getCurrentSponsor } from "@/lib/sponsors";
 import { goPath, siteUrl } from "@/lib/site";
 import "./globals.css";
 
-const sans = Source_Sans_3({
+const sans = Inter({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   variable: "--font-source",
   display: "swap",
 });
 
-const display = Fraunces({
+const display = Inter_Tight({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  weight: ["500", "600", "700"],
+  variable: "--font-tight",
   display: "swap",
 });
 
@@ -29,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s — Will It HA",
   },
   description:
-    "A living directory of batteries and inverters sold in Australia, rated for Home Assistant: local or cloud, control, and the Energy Dashboard.",
+    "Home Assistant Compatibility - For Australians. Batteries and inverters rated for local control, cloud lock-in, and the Energy Dashboard.",
   applicationName: "Will It HA",
   openGraph: {
     type: "website",
@@ -65,7 +67,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
 
   return (
     <html lang="en-AU" className={`${sans.variable} ${display.variable}`}>
-      <body className="min-h-screen bg-paper font-sans text-ink antialiased">
+      <body className="min-h-screen bg-white font-sans text-ink antialiased">
         <PageviewBeacon />
         <a
           href="#content"
@@ -75,7 +77,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         </a>
         <SponsorBar id={sponsor.id} href={href} kicker={kicker} message={message} />
         <SiteHeader />
-        <main id="content" className="mx-auto w-full min-w-0 max-w-5xl px-4 py-6">
+        <main id="content" className="mx-auto w-full min-w-0 max-w-[1080px] px-5 sm:px-10">
           {children}
         </main>
         <SiteFooter />

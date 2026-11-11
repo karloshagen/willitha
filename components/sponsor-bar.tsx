@@ -43,15 +43,15 @@ export function SponsorBar({
   if (hidden) return null;
 
   return (
-    <div className="sponsor-bar bg-ink text-paper">
-      <div className="mx-auto flex w-full max-w-5xl items-start gap-3 px-4 py-2 text-sm">
-        <Link href={href} className="min-w-0 flex-1 leading-snug hover:underline">
-          <span className="font-semibold">{kicker}</span>
-          {message ? <span className="text-paper/80"> — {message}</span> : null}
+    <div className="sponsor-bar border-b border-line bg-soft text-muted">
+      <div className="mx-auto flex w-full max-w-[1080px] items-start gap-3 px-5 py-2 text-sm sm:px-10">
+        <Link href={href} className="min-w-0 flex-1 leading-snug hover:text-ink">
+          <span className="font-medium text-ink">{kicker}</span>
+          {message ? <span> — {message}</span> : null}
         </Link>
         <button
           type="button"
-          className="shrink-0 rounded-full px-2 py-1 text-base leading-none text-paper/80 hover:bg-white/10 hover:text-paper"
+          className="shrink-0 rounded-full px-2 py-1 text-base leading-none hover:text-ink"
           aria-label="Close sponsor message"
           onClick={() => {
             try {

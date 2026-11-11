@@ -13,11 +13,11 @@ import {
 import type { Entry } from "@/lib/types";
 
 const tones: Record<BadgeTone, string> = {
-  good: "border-eucalyptus/25 bg-eucalyptus-soft text-eucalyptus",
-  mid: "border-ochre/30 bg-ochre-soft text-ochre",
-  info: "border-sea/20 bg-sea-soft text-sea",
-  bad: "border-rose/25 bg-rose-soft text-rose",
-  neutral: "border-line bg-sand text-ink",
+  good: "border-line bg-soft text-muted",
+  mid: "border-line bg-soft text-muted",
+  info: "border-line bg-soft text-muted",
+  bad: "border-line bg-soft text-muted",
+  neutral: "border-line bg-soft text-muted",
 };
 
 export function Badge({ tone, children }: { tone: BadgeTone; children: React.ReactNode }) {

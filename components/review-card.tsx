@@ -23,7 +23,7 @@ export function Rating({ rating }: { rating: number }) {
 export function ReviewCard({ review }: { review: Review }) {
   const photo = review.photos[0];
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-card shadow-[0_1px_0_rgba(23,36,28,0.04)]">
+    <article className="flex h-full flex-col overflow-hidden rounded-2xl bg-soft">
       {photo ? (
         // Review photos are owner-supplied external URLs, so they are not passed through the image optimiser.
         // eslint-disable-next-line @next/next/no-img-element

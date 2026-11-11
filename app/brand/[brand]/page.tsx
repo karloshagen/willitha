@@ -40,7 +40,7 @@ export default async function BrandPage({ params }: { params: Promise<{ brand: s
   }
 
   return (
-    <div className="grid gap-6">
+    <div className="grid gap-6 py-8 sm:py-12">
       <p className="text-sm">
         <Link href="/search" className="font-semibold text-eucalyptus">
           Directory

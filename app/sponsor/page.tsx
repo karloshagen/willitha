@@ -34,9 +34,9 @@ export default async function SponsorPage({
   const format = (value: number | undefined) => (typeof value === "number" ? value.toLocaleString("en-AU") : "—");
 
   return (
-    <div className="mx-auto grid max-w-3xl gap-8">
+    <div className="mx-auto grid max-w-3xl gap-8 py-8 sm:py-12">
       <header>
-        <p className="text-sm font-semibold text-ochre">From A$49/week</p>
+        <p className="text-sm font-medium text-blue">From A$49/week</p>
         <h1 className="mt-1 font-display text-4xl leading-tight">Sponsor Will It HA</h1>
         <p className="mt-3 text-lg leading-snug">
           A weekly newsletter for Australian Home Assistant solar owners, plus the sponsor slot on the site.
